@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block body %}
+ <div class="rs-body">
+      <div class="rs-container">
+        <div class="rs-main">
+          <div class="rs-content rs-panel">
+            <div class="rs-inner">
+              <h2 class="rs-page-title">Deployments</h2>
+
+
+    <ul>
+    {% for role in roles %}
+        <li>{{role}}</li>
+    {% endfor %}
+    </ul>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            Results:
+            <pre>
+                {% for message in messages %}
+{{ message }}
+                {% endfor %}
+            </pre>
+        {% endif %}
+    {% endwith %}
+    
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rs-push"></div>
+  </div>
+{% endblock %}

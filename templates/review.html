@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block body %}
+ <div class="rs-body">
+      <div class="rs-container">
+        <div class="rs-main">
+          <div class="rs-content rs-panel">
+            <div class="rs-inner">
+              <h2 class="rs-page-title">Customer Account Review</h2>
+
+    Enter Details:
+    <form action="{{url_for('review')}}" method="post">
+         <p>ACCOUNT_NUMBER:<input type="text" name="account_number" /></p>
+         <p>TICKET_NUMBER:<input type="text" name="ticket_number" /></p>
+         <p>CATERGORY:<input type="text" name="catergory" /></p>
+         <p>SUBJECT:<input type="text" name="subject" /></p>
+         <p id="request_field">REQUESTS:<button onclick="addRequestField(); return false;" class="rs-plus"></button><input id="requests" type="text" name="requests[]" /></p>
+         <p id="issue_field">ISSUES:<button onclick="addIssueField(); return false;" class="rs-plus"></button><input id="issues" type="text" name="issues[]" /></p>
+         <p>COMMENTS:<textarea rows="4" cols="50" name="comments"> </textarea></p>        
+         <p><button type="submit" class="rs-btn rs-btn-login">Submit</button></p>
+    </form>
+                
+                
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            Results:
+            <pre>
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            </pre>
+        {% endif %}
+    {% endwith %}
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rs-push"></div>
+  </div>
+{% endblock %}

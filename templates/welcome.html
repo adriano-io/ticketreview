@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block body %}
+ <div class="rs-body">
+      <div class="rs-container">
+        <div class="rs-main">
+          <div class="rs-content rs-panel">
+<div class="rs-inner">
+              <h2 class="rs-page-title">Welcome to SMB Linux Deployments</h2>
+              {% if 'username' in session %}
+        <h3><p>Welcome back {{session['username']}}!</p></h3>
+        <form action="{{url_for('welcome')}}" method="post">
+           <button type="submit" name="logout" class="rs-btn">Logout</button>
+        </form>
+{% else %}
+        <h3><p>Please login:</p></h3>
+        <form action="{{url_for('welcome')}}" method="post">
+            <p>Username:<br />
+            <input type="text" name="username" /></p>
+            <p>Password:<br />
+            <input type="password" name="passwd" /></p>
+            <p><button type="submit" class="rs-btn rs-btn-login">Login</button></p>
+        </form>
+{% endif %}
+{% with messages = get_flashed_messages() %}
+  {% for message in messages %}
+      {{message}}
+  {% endfor %}
+{% endwith %}
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rs-push"></div>
+  </div>
+{% endblock %}

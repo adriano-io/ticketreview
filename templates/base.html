@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ticket Monkey's Deployments</title>
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" type="text/css" href="https://eafdbc63c97ce6bec9ef-b0a668e5876bef6fe25684caf71db405.ssl.cf1.rackcdn.com/v1-latest/canon.min.css">
+  <link rel="shortcut icon" href="/favicon.ico'">
+  <script type="application/javascript" src="http://code.jquery.com/jquery-1.10.0.min.js"></script>
+  <script type="application/javascript" src="https://eafdbc63c97ce6bec9ef-b0a668e5876bef6fe25684caf71db405.ssl.cf1.rackcdn.com/v1-latest/canon.min.js"></script>
+    
+    <script type='text/javascript'>
+        function addRequestField(){
+            var container = document.getElementById("request_field");
+            var request = document.getElementById("requests");
+            container.appendChild(request.cloneNode(true));
+        }
+        function addIssueField(){
+            var container = document.getElementById("issue_field");
+            var issue = document.getElementById("issues");
+            container.appendChild(issue.cloneNode(true));
+        }
+
+
+
+    </script>    
+    
+</head>
+
+<body class="rs-responsive">
+
+<!--################################ 
+## HEADER START
+#################################-->
+  <div class="rs-wrapper">
+    <div class="rs-nav-utility">
+      <div class="rs-container">
+        <ul class="rs-nav rs-pull-right">
+          {% if 'username' in session %}
+          <li class="rs-nav-item">
+           <a class="rs-nav-link" href="#">User: {{session['username']}}</a>
+          </li>
+          <li>
+          <form action="{{url_for('welcome')}}" method="post">
+           <button type="submit" name="logout" class="rs-btn rs-btn-link">Logout</button>
+           </form>
+           </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+    <div class="rs-nav-primary">
+      <div class="rs-container">
+        <div class="rs-nav-brand">
+          <a href="/"></a>
+        </div>
+        <ul class="rs-nav">
+        {% block nav %}{% endblock %}
+          {% if 'username' in session %}
+          <li><a href="{{url_for('remote')}}">Remote Control</a></li>
+          <li><a href="{{url_for('breakfixes')}}">Breakfixes</a></li>
+          <li><a href="{{url_for('deployments')}}">Deployments</a></li>
+          <li><a href="{{url_for('review')}}">Reviews</a></li>
+          {% endif %}
+          <li><a href="deployments.html">Deployments</a></li>
+          <li><a href="#">Ransack Wiki</a></li>
+          <li><a href="one.rackspace.com">One Wiki</a></li>
+        </ul>
+      </div>
+    </div>
+
+<!--<div class="rs-nav-secondary">
+      <div class="rs-container">
+        <ul class="rs-nav">
+          <li><a href="#">Subnav One</a></li>
+          <li><a href="#">Subnav Two</a></li>
+          <li><a href="#">Subnav Three</a></li>
+        </ul>
+      </div>
+    </div> -->
+<!--################################ 
+## HEADER END
+#################################-->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+<!--################################ 
+## CONTENT START
+#################################-->
+
+   {% block body %}{% endblock %}
+
+<!--################################ 
+## CONTENT END
+#################################-->
+
+
+
+
+
+<!--################################ 
+## FOOTER START
+#################################-->
+  <div class="rs-nav-footer">
+    <div class="rs-container">
+      <ul class="rs-nav">
+        <li class="rs-nav-item">&copy; Rackspace, US</li>
+        <li class="rs-nav-item"><a class="rs-nav-link" href="http://www.rackspace.com/information/legal/websiteterms" target="blank">Website Terms</a>
+        <li class="rs-nav-item"><a class="rs-nav-link" href="http://www.rackspace.com/information/legal/privacystatement" target="blank">Privacy Policy</a>
+      </ul>
+    </div>
+  </div>
+<!--################################ 
+## FOOTER END
+#################################-->
+</body>
+</html>

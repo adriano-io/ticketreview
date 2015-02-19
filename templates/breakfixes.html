@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block body %}
+ <div class="rs-body">
+      <div class="rs-container">
+        <div class="rs-main">
+          <div class="rs-content rs-panel">
+            <div class="rs-inner">
+              <h2 class="rs-page-title">Ticket Ninja Breakfixes</h2>
+
+ <h3 class="rs-page-title">Apache Install</h3>
+    
+
+
+        <form action="" method="post">
+            <p>Enter Name of Domain:
+            <input type="text" name="username" /></p>
+            <p>Password:
+            <input type="Enter DocumentRoot" name="passwd" /></p>
+            <p><button type="submit" class="rs-btn rs-btn-login">Launch Playbook</button></p>
+        </form>
+
+
+<p>---
+# Website Variables</br >
+#  vars_prompt:</br >
+#  - name: "domainname"</br >
+#    prompt: "Enter Name of Domain"</br >
+#    private: no</br >
+#</br >
+#  - name: "documentroot"</br >
+#    prompt: "Enter DocumentRoot"</p>
+
+</br>
+</br>
+Test button:
+    <form action="{{url_for('breakfixes')}}" method="post">
+        <input type="submit" value="Execute" />
+    </form>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            Results:
+            <pre>
+                {% for message in messages %}
+                {{ message }}
+                {% endfor %}
+            </pre>
+        {% endif %}
+    {% endwith %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="rs-push"></div>
+  </div>
+{% endblock %}

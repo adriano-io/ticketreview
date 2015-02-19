@@ -1,0 +1,1 @@
+2997749,141124-03225,rackconnect,rackconnect,rackconnect, customer could not update software on their cloud server because of rackconnect, this is because we locked their access down as the customer did not provide the information needed in ticket: 141104-02997
